@@ -16,6 +16,19 @@ using namespace std;
  * 
  */
 int main() {
-    
+    int n = 10;
+    int arr[n+1][n+1];
+    arr[0][0] = 1;
+    for (int i=1;i<n;i++) {
+        for (int j=0;j<i;j++) {
+            if (j == 0) {
+                arr[i][0] = arr[i-1][i-1];
+            }
+            arr[i][j] = arr[i][j-1] + arr[i-1][j-1];
+        }
+    }
+    int input;
+    cin >> input;
+    cout << arr[input+1][0]; // first element if each row is the previous bell number 
     return 0;
 }
